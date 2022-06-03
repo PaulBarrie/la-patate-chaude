@@ -1,9 +1,19 @@
 [package]
 name = "hot_patatoe_client"
 version = "0.1.0"
-authors = ["esgi-al1 <paul.barrie.calmels@gmail.com>"]
-edition = "2018"
+authors = [
+            "Paul Barrié <paul.barrie.calmels@gmail.com>",
+            "Paolo Manoas<>",
+            "Adem Mrizak <>"
+        ]
+
+edition = "2021"
+
+[[bin]]
+name = "client"
+path="src/main.rs"
 
 [dependencies]
-tokio = { version = "0.2", features = ["full"] }
-warp = "0.2"
+serde= {version = "1.0.1", features = ["derive"]}
+serde_json = "1.0"
+serde_unit_struct = "0.1.1"

@@ -1,19 +1,19 @@
 [package]
-name = "hot_patatoe_client"
+name = "hot_potato_client"
 version = "0.1.0"
 authors = [
-            "Paul Barrié <paul.barrie.calmels@gmail.com>",
-            "Paolo Manoas<>",
-            "Adem Mrizak <>"
-        ]
+    "Paul Barrié <paul.barrie.calmels@gmail.com>",
+    "Paolo Manaois<>",
+    "Adem Mrizak <>"
+]
 
 edition = "2021"
 
 [[bin]]
 name = "client"
-path="src/main.rs"
+path = "src/main.rs"
 
 [dependencies]
-serde= {version = "1.0.1", features = ["derive"]}
 serde_json = "1.0"
 serde_unit_struct = "0.1.1"
+shared = { path = "../shared" }

@@ -10,14 +10,14 @@ volumes:
 services:
     server:
         build:
-            context: ./server
+            context: resources/server
             dockerfile: Dockerfile
         environment:
             - PORT=7878
         ports:
-            - 7878:7878
+            - "7878:7878"
         volumes:
-            - server:/home/app
+            - server:/home/tcp
         networks:
             platform:
                 aliases:
@@ -29,9 +29,9 @@ services:
         environment:
             - PORT=3030
         ports:
-            - 3030:3030
+            - "3030:3030"
         volumes:
-            - client:/home/app
+            - client:/home/tcp
         networks:
             platform:
                 aliases:

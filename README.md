@@ -1,16 +1,34 @@
-# Projet Rust: *la Patate Chaude* <br> Architecture des Logiciels - 4<sup>ème</sup> année - ESGI
+# La patate chaude
 
-Authors: *Adem Mrizak*, *Paolo Manaois*, *Paul Barrié*
+## Contributeurs
 
-> ## Run and tests
+- Paolo MANAOIS
+- Paul BARRIE
+- Adem MRIZAK
 
-Launch the platform running:
+## Organisation du travail
 
-```
- docker compose up
-```
+### Paolo MANAOIS
 
-> ## Notes pour plus tard
+- Challenges
+- Parsing messages
 
-* Les messages doivent ils-avoir un \"?
-* Comment utiliser un option pour une struct ou mettre une valeur par défaut dans les aargs d'une fonction?
+### Paul BARRIE
+
+- Communication serveur/client
+- Création des messages
+
+### Adem MRIZAK
+
+- Création du serveur
+
+## Spécificités
+
+- CLI permettant d'afficher une aide sur le programme.
+- Possibilité de choisir le nom d'utilisateur et l'adresse du serveur dans les arguments du programme.
+- Stratégie visant le joueur ayant le meilleur score à chaque tour.
+
+## Bonus
+
+- Implémentation du challenge Maze avec un solver répondant à l'algorithme BFS.
+- Mise en place d'un serveur permettant de s'assurer du bon fonctionnement du client.

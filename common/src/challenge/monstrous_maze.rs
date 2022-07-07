@@ -251,3 +251,45 @@ fn compute_path(path_map: &Vec<Direction>, width: usize, end: Coordinates) -> St
 
     res
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn create_challenge() -> MonstrousMazeChallenge {
+        MonstrousMazeChallenge {
+            input: MonstrousMazeInput {
+                grid: "│Y M X│".to_string(),
+                endurance: 2
+            }
+        }
+    }
+
+    #[test]
+    pub fn verify_should_return_true() {
+        let challenge = create_challenge();
+        let answer = MonstrousMazeOutput {
+            path: ">>>>".to_string()
+        };
+
+        assert_eq!(true, challenge.verify(&answer));
+    }
+
+    #[test]
+    pub fn verify_should_return_false() {
+        let challenge = create_challenge();
+        let answer = MonstrousMazeOutput {
+            path: ">>>".to_string()
+        };
+
+        assert_eq!(false, challenge.verify(&answer));
+    }
+
+    #[test]
+    pub fn solver_should_return_correct_path() {
+        let challenge = create_challenge();
+        let answer = challenge.solve();
+
+        assert_eq!(true, challenge.verify(&answer));
+    }
+}

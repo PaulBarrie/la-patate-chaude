@@ -48,8 +48,8 @@ pub enum Challenge {
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct ChallengeResult {
-    answer: ChallengeAnswer,
-    next_target: String
+    pub answer: ChallengeAnswer,
+    pub next_target: String
 }
 
 #[derive(Deserialize, Serialize, Debug)]

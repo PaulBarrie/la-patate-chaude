@@ -196,7 +196,6 @@ impl Challenge for MonstrousMazeChallenge {
 
                 next
             });
-        println!("{} {}", end.endurance, grid[end.line * width + end.column]);
         end.endurance > 0 && grid[end.line * width + end.column] == 'X'
     }
 }

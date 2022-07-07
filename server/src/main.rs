@@ -1,8 +1,9 @@
 use std::io::Error;
 use std::net::{Shutdown, TcpListener, TcpStream};
 
-use common::challenge::md5_hashcash::MD5HashCashInput;
-use common::domain::PublicPlayer;
+use common::challenge::Challenge as ChallengeTrait;
+use common::challenge::md5_hashcash::{MD5HashCashInput, MD5HashCashChallenge};
+use common::domain::{PublicPlayer, ChallengeAnswer};
 use common::message::{Challenge, EndOfGame, Message, PublicLeaderBoard, Welcome};
 use common::utils;
 use common::utils::read_message;
@@ -92,7 +93,19 @@ fn message_handler_builder(mut players: Vec<PublicPlayer>) -> impl FnMut(&Messag
             Message::SubscribeResult(_) => Ok(true),
             Message::PublicLeaderBoard(_) => Ok(true),
             Message::Challenge(_) => Ok(true),
-            Message::ChallengeResult(_) => {
+            Message::ChallengeResult(challenge_result) => {
+                match &challenge_result.answer {
+                    ChallengeAnswer::MD5HashCash(a) => {
+                        let c = MD5HashCashChallenge {
+                            input: MD5HashCashInput {
+                                complexity: 10,
+                                message: "è_b987b-_vbè(79B".to_string(),
+                            }
+                        };
+                        println!("{:?}", c.verify(&a));
+                    },
+                    _ => {}
+                }
                 utils::write_message(&Message::EndOfGame(
                     EndOfGame {
                         leader_board: PublicLeaderBoard(players.clone()),

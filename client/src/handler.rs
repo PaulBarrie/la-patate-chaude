@@ -17,7 +17,6 @@ pub fn message_handler_builder(username: String, mut players: Vec<PublicPlayer>)
     impl FnMut(&Message, &mut TcpStream) -> Result<bool, Error> {
 
     move |msg, stream| {
-        println!("{msg:?}");
         match msg {
             Message::Welcome(_welcome) => {
                 utils::write_message(&Message::Subscribe(
